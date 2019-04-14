@@ -13,3 +13,9 @@ package-lock.json
 *.ntvs*
 *.njsproj
 *.sln
+*.rar
+*.zip
+*.mp4
+*.jpg
+*.png
+mock/
