@@ -9,20 +9,23 @@ var mysql = require('mysql');
 var conn = mysql.createConnection(models.mysql);
 conn.connect();
 
-fs.readFile('./mock/data.json', function (err, data) {
+var table='hotCities'
+
+fs.readFile('./mock/city.json', function (err, data) {
     if (err) {
         return console.error(err);
     }
     var person = data.toString();//将二进制的数据转换为字符串
 
     person = JSON.parse(person);//将字符串转换为json对象
-    console.log('success listen at port:' + person.data.iconsMenuList);
+    //console.log('success listen at port:' + person.data.iconsMenuList);
 
     
-    var array=person.data.weekendList;
+    var array=person.data[table]
+	console.log(array)
     for (let index = 0; index < array.length; index++) {
         const element = array[index];
-        var d = element,sql = "INSERT INTO iconsMenuList",param = [];
+        var d = element,sql = "INSERT INTO "+table,param = [];
         if (d != undefined) {
             var property = ' ('
             var val = ' ('
@@ -40,9 +43,9 @@ fs.readFile('./mock/data.json', function (err, data) {
             val += ')'
             sql = sql + property + ' VALUES ' + val
         }
-        console.log(sql,param)
+        //console.log(sql,param)
         conn.query(sql, param, function (err, result) {
-            // console.log(err)
+             console.log(err)
         })
     }
 
