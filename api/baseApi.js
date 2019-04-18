@@ -176,53 +176,37 @@ router.post('/build', (req, res) => {
 function buildTree(result, pid, dep) {
     var tree = []
     result.forEach(item => {
-        var children = []
         if (item.pid == pid) {
             tree.push(item)
         }
     })
     var d = dep + 1
-
-    tree = tree.map(element => {
-        // console.log(element)
-        var node = {}
-        var children = buildTree(result, element.id, d)
-        if (dep == 1) {
-            if (children.length != 0) {
-                node.redirect = 'noredirect'
-                node.component = 'Layout'
-                node.alwaysShow = true
-                node.meta = {}
-                node.meta.title = element.name
-                node.meta.icon = element.icon
-                node.path = element.path
-                node.name = element.name
-                node.children=children
-            } else {
-                node.component = 'Layout'
-                node.path = element.path
-                var child = {}
-                child.component = element.component
-                child.name = element.name
-                child.path = element.path
-                child.meta = {}
-                child.meta.title = element.name
-                child.meta.icon = element.icon
-                node.children = [child]
-            }
-
+    var tree = tree.map(item => {
+        var children = buildTree(result, item.id, d)
+        if (dep == 1 && children.length != 0) {
+            item.alwaysShow = true
+            item.children = children
+            item.component = 'Layout'
+            var meta = { title: item.name, icon: item.icon }
+            item.meta = meta
+            item.path = '/' + item.path
+            item.redirect = 'noredirect'
+        } else if (dep == 1 && children.length == 0) {
+            item.component = 'Layout'
+            var childrenList = []
+            var child = {}
+            child.path = '/' + item.path
+            child.meta = { title: item.name, icon: item.icon }
+            childrenList.push(child)
+            item.children = childrenList
         } else {
-            if (children.length!=0) {
-                node.children = children
+            var meta = { title: item.name, icon: item.icon }
+            item.meta = meta
+            if (children.length != 0) {
+                item.children = children
             }
-            node.component = element.component
-            node.meta = {}
-            node.meta.title = element.name
-            node.meta.icon = element.icon
-            node.path = element.path
-            node.name = element.name
         }
-        return node
+        return item
     })
     return tree
 }
