@@ -176,6 +176,19 @@ router.get('/getcode', (req, res) => {
     res.end(util.getCode())
 });
 
+router.get('/log', (req, res) => {
+    var query=req.query
+    var obj= JSON.parse(decodeURI(query.obj)) 
+    var sql='INSERT INTO `qr_log` (`params`, `username`) VALUES (?, ?)'
+    conn.query(sql, [JSON.stringify(obj.params),obj.username], function (err, result) {
+        if (err) {
+            console.log(err);
+        }
+        if (result) {
+            jsonWrite(res, result);
+        }
+    })
+});
 
 
 router.post('/upload', upload.array('file', 10), async (req, res, next) => {
