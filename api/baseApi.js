@@ -5,6 +5,9 @@ var multer = require('multer');
 var UUID = require('uuid')
 var path = require('path')
 
+var util=require('./util')
+
+
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, path.join(__dirname, '../public'))
@@ -142,6 +145,35 @@ router.post('/action', (req, res) => {
             jsonWrite(res, result);
         }
     })
+});
+var mqtt = require('mqtt')
+var client = mqtt.connect('mqtt://127.0.0.1')
+
+client.on('message', function (topic, message) {
+    console.log(message.toString())
+    // client.end()
+})
+client.on('connect', function () {
+    client.subscribe('presence')
+})
+
+router.post('/mqtt', (req, res) => {
+    var p = req.body;
+
+    client.publish('presence', JSON.stringify(p))
+    jsonWrite(res, 'success');
+
+});
+
+router.get('/code', (req, res) => {
+    let img =util.makeCapcha()
+  res.setHeader('Content-Type', 'image/bmp')
+  res.end(img.getFileData())
+
+});
+
+router.get('/getcode', (req, res) => {
+    res.end(util.getCode())
 });
 
 
