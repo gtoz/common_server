@@ -71,20 +71,96 @@ var jsonWrite = function (res, ret) {
     }
 };
 
-
+// by 司徒正美
+class Hash{
+    constructor(){
+        this.table = new Array(1024);
+    }
+    hash(data) {
+    //就将字符串中的每个字符的ASCLL码值相加起来，再对数组的长度取余
+        var total = 0;
+        for(var i = 0; i < data.length; i++) {
+            total += data.charCodeAt(i);
+        }
+        console.log("Hash Value: " +data+ " -> " +total);
+        return total % this.table.length;
+    }
+    insert(key, val,req, res){
+        var pos = this.hash(key.toString());
+        this.table[pos] = val;
+        if (pos<512) {
+            insert({key:key,value:val,hash:pos},'eladmin_new',req, res)
+        }else{
+            insert({key:key,value:val,hash:pos},'test',req, res)
+        }
+    }
+    get(key,req, res){
+        var pos = this.hash(key.toString());
+        var table=''
+        if (pos<512) {
+           table= 'eladmin_new.hash'
+        }else{
+            table='test.hash'
+        }
+        var sql='select * from '+table+' where `key`="?"'
+        sql=sql.replace('?',key)
+        conn.query(sql, [], function (err, result) {
+            if (err) {
+                console.log(err);
+            }
+            if (result) {
+                jsonWrite(res, result);
+            }
+        })
+        return this.table[pos] 
+    }
+    delete(key,req, res){
+        var pos = this.hash(key.toString());
+        var table=''
+        if (pos<512) {
+           table= 'eladmin_new.hash'
+        }else{
+            table='test.hash'
+        }
+        var sql='delete from '+table+' where `key`="?" AND `id`=?'
+        sql=sql.replace('?',key).replace('?',req.body.id)
+        conn.query(sql, [], function (err, result) {
+            if (err) {
+                console.log(err);
+            }
+            if (result) {
+                jsonWrite(res, result);
+            }
+        })
+      
+    }
+    show(){
+        for(var i = 0; i < this.table.length; i++) {
+            if(this.table[i] != undefined) {
+                console.log(i + ":" +this.table[i]);
+            }
+        }
+    }
+}
 
 var space = ' '
 var eq = '='
-router.post('/insert', (req, res) => {
+router.post('/insert_hash', (req, res) => {
     var p = req.body;
-    var sql = "INSERT INTO " + p.table;
+    //不同key
+    var hash=new Hash()
+    hash.insert(p.key,p.value,req, res)
+});
+
+function insert(p,database,req, res) {
+    var sql = "INSERT INTO "+database+".hash" ;
     var param = []
-    var d = p.data
+    var d = p
     if (d != undefined) {
         var property = ' ('
         var val = ' ('
         for (const key in d) {
-            property = property + key + ','
+            property = property +'`'+ key +'`'+ ','
             val = val + '?,'
             if (d.hasOwnProperty(key)) {
                 const element = d[key];
@@ -106,37 +182,24 @@ router.post('/insert', (req, res) => {
             jsonWrite(res, result);
         }
     })
+}
+
+router.post('/get_hash', (req, res) => {
+    var p = req.body;
+    var hash=new Hash()
+    hash.get(p.key,req, res)  
 });
 
-router.post('/search', (req, res) => {
+router.post('/delete_hash', (req, res) => {
     var p = req.body;
-    var sql = "select * from " + p.table;
-    var param = []
-    var d = p.data
-    if (d != undefined) {
-        var where = ' where '
-        for (const key in d) {
-            where = where + ' ' + key + ' like ? AND '
-            if (d.hasOwnProperty(key)) {
-                const element = d[key];
-                param.push(element)
-            }
-        }
-        where = where.substring(0, where.lastIndexOf('AND'))
-        sql = sql + where
-    }
-    conn.query(sql, param, function (err, result) {
-        if (err) {
-            console.log(err);
-        }
-        if (result) {
-            jsonWrite(res, result);
-        }
-    })
+    var hash=new Hash()
+    hash.delete(p.key,req, res)  
 });
+
 
 router.post('/action', (req, res) => {
     var p = req.body;
+
     conn.query(p.sql, [], function (err, result) {
         if (err) {
             console.log(err);
@@ -145,6 +208,7 @@ router.post('/action', (req, res) => {
             jsonWrite(res, result);
         }
     })
+   
 });
 var mqtt = require('mqtt')
 var client = mqtt.connect('mqtt://127.0.0.1')
