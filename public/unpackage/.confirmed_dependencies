@@ -1,0 +1,317 @@
+{
+	"index.html": {
+		"resources": [
+			"images/img1.jpg",
+			"images/img4.jpg",
+			"images/img3.jpg",
+			"images/任务中心.png",
+			"images/个人中心 (1).png",
+			"images/新闻动态.jpg",
+			"images/请假申请.png",
+			"images/img2.jpg",
+			"images/组织机构.png",
+			"css/index.css",
+			"images/公告.png",
+			"images/出差.png",
+			"css/font-awesome.css",
+			"js/mui.min.js",
+			"images/工资.png",
+			"images/员工离职.png",
+			"css/mui.min.css",
+			"images/签到.png",
+			"css/reset.css",
+			"fonts/mui.ttf",
+			"images/personalcenter1.jpg",
+			"moremessge.html",
+			"department.html",
+			"css/common.css",
+			"regist.html",
+			"images/backg.png",
+			"forget_password.html",
+			"images/personal.png",
+			"images/department.png",
+			"images/sign.png",
+			"images/notice.png",
+			"images/salary.png",
+			"images/task.png",
+			"images/dimission.png",
+			"images/leave.png",
+			"images/business.png",
+			"images/news.jpg",
+			"leave.html",
+			"dimission.html",
+			"business.html",
+			"personalcenter.html",
+			"images/personal1.png",
+			"images/kefu2.png",
+			"punchcard.html"
+		],
+		"refer": [
+			"moremessge.html",
+			"department.html",
+			"regist.html",
+			"forget_password.html",
+			"leave.html",
+			"dimission.html",
+			"business.html",
+			"personalcenter.html",
+			"punchcard.html"
+		]
+	},
+	"moremessge.html": {
+		"resources": [
+			"index.html",
+			"css/font-awesome.css",
+			"css/mui.min.css",
+			"message_details.html"
+		],
+		"refer": [
+			"index.html",
+			"message_details.html"
+		]
+	},
+	"message_details.html": {
+		"resources": [
+			"moremessge.html",
+			"css/font-awesome.css",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"moremessge.html"
+		]
+	},
+	"department.html": {
+		"resources": [
+			"css/mui.min.css",
+			"department_member.html",
+			"images/icon.jpg",
+			"index.html",
+			"images/close.png",
+			"css/font-awesome.css",
+			"fonts/mui.ttf"
+		],
+		"refer": [
+			"department_member.html",
+			"index.html"
+		]
+	},
+	"department_info.html": {
+		"resources": [
+			"department_member.html",
+			"images/头像2.png",
+			"index.html"
+		],
+		"refer": [
+			"department_member.html",
+			"index.html"
+		]
+	},
+	"department_member.html": {
+		"resources": [
+			"department_info.html",
+			"images/头像.png",
+			"images/头像1.png",
+			"css/mui.min.css",
+			"department.html",
+			"css/font-awesome.css",
+			"fonts/mui.ttf",
+			"images/photo1.png"
+		],
+		"refer": [
+			"department_info.html",
+			"department.html"
+		]
+	},
+	"forget_password.html": {
+		"resources": [
+			"index.html"
+		],
+		"refer": [
+			"index.html"
+		]
+	},
+	"regist.html": {
+		"resources": [
+			"css/mui.min.css",
+			"css/common.css",
+			"fonts/mui.ttf",
+			"images/backg.png",
+			"css/reset.css",
+			"index.html"
+		],
+		"refer": [
+			"index.html"
+		]
+	},
+	"leave.html": {
+		"resources": [
+			"images/add.png",
+			"css/same.css",
+			"index.html",
+			"leave_add.html",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"images/close.png"
+		],
+		"refer": [
+			"index.html",
+			"leave_add.html"
+		]
+	},
+	"business.html": {
+		"resources": [
+			"index.html",
+			"business_add.html",
+			"images/add.png",
+			"css/same.css",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"index.html",
+			"business_add.html"
+		]
+	},
+	"dimission.html": {
+		"resources": [
+			"index.html",
+			"images/add.png",
+			"css/same.css"
+		],
+		"refer": [
+			"index.html"
+		]
+	},
+	"personalcenter.html": {
+		"resources": [
+			"images/icon10.png",
+			"images/icon3.jpg",
+			"images/setting.png",
+			"images/icon4.jpg",
+			"images/icon6.jpg",
+			"images/icon7.jpg",
+			"images/icon9.png",
+			"images/icon8.png",
+			"images/photo.png",
+			"images/icon5.jpg",
+			"images/bg.jpg",
+			"setting.html",
+			"index.html",
+			"images/close.png",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"setting.html",
+			"index.html"
+		]
+	},
+	"setting.html": {
+		"resources": [
+			"images/close.png",
+			"css/font-awesome.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"personalcenter.html",
+			"message_setting.html",
+			"safety_setting.html"
+		],
+		"refer": [
+			"personalcenter.html",
+			"message_setting.html",
+			"safety_setting.html"
+		]
+	},
+	"leave_add.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/same.css",
+			"css/mui.min.css",
+			"css/mui.dtpicker.css",
+			"js/mui.dtpicker.js",
+			"css/mui.poppicker.css",
+			"css/mui.picker.min.css",
+			"js/mui.picker.min.js",
+			"js/mui.poppicker.js",
+			"leave_add.html",
+			"leave.html"
+		],
+		"refer": [
+			"leave_add.html",
+			"leave.html"
+		]
+	},
+	"message_setting.html": {
+		"resources": [
+			"setting.html"
+		],
+		"refer": [
+			"setting.html"
+		]
+	},
+	"change_password.html": {
+		"resources": [
+			"css/common.css",
+			"safety_setting.html"
+		],
+		"refer": [
+			"safety_setting.html"
+		]
+	},
+	"safety_setting.html": {
+		"resources": [
+			"setting.html",
+			"change_password.html"
+		],
+		"refer": [
+			"setting.html",
+			"change_password.html"
+		]
+	},
+	"business_add.html": {
+		"resources": [
+			"business.html",
+			"images/close.png",
+			"js/mui.picker.min.js",
+			"js/mui.min.js",
+			"js/mui.poppicker.js",
+			"css/mui.dtpicker.css",
+			"css/same.css",
+			"css/mui.min.css",
+			"css/mui.poppicker.css",
+			"css/mui.picker.min.css",
+			"js/mui.dtpicker.js",
+			"index.html"
+		],
+		"refer": [
+			"business.html",
+			"index.html"
+		]
+	},
+	"punchcard.html": {
+		"resources": [
+			"js/vue.min.js",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"index.html",
+			"fonts/mui.ttf",
+			"images/punch.png",
+			"images/cutline.png",
+			"js/punchcard.js",
+			"images/custline.png"
+		],
+		"refer": [
+			"index.html",
+			"punchlist.html"
+		]
+	},
+	"punchlist.html": {
+		"resources": [
+			"css/mui.min.css",
+			"js/punchlist_calendar.js",
+			"css/punchlist_calendar.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf"
+		]
+	}
+}

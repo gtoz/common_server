@@ -1,0 +1,25 @@
+body {
+	background-color: #FAFAFA;
+}
+
+.mui-bar {
+	background-color: #F7F7F7;
+}
+
+.mui-content {
+	background-color: #FFFFFF;
+}
+
+.mui-bar img {
+	width: 18px;
+	margin-top: 13px;
+	margin-left: 18px;
+	margin-right: 10px;
+}
+
+
+/*去除头部导航条阴影*/
+
+.mui-bar-nav {
+	box-shadow: none;
+}

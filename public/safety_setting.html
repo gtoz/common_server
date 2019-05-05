@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>账号与安全</title>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+		<!--引入muicss文件-->
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<!--引入样式重置表-->
+		<!--<link rel="stylesheet" type="text/css" href="css/reset.css" />-->
+		<style type="text/css">
+			html {
+				background-color: #f6f7f7;
+			}
+			
+			.mui-bar-nav~.mui-content {
+				padding-top: 7%;
+			}
+			
+			.mui-content {
+				background-color: #FAFAFA;
+			}
+			
+			.mui-table-view {
+				margin-bottom: 2%;
+			}
+			
+			.mui-bar-nav {
+				box-shadow: none;
+			}
+			
+			.info {
+				padding: 0 0 2% 3%;
+				font-size: 12px;
+				color: #798792;
+				letter-spacing: 1px;
+				/*文字间距*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href=""></a>
+			<h1 class="mui-title">账号与安全</h1>
+		</header>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="mui-pull-left">手机账号</a>
+					<a class="mui-pull-right">15928611255</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-pull-left">邮箱账号</a>
+					<a class="mui-pull-right">lalala@sobey.com</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" href="change_password.html">密码修改</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" href="password_protect.html">密码保护</a>
+				</li>
+			</ul>
+			<div class="info">通过面容ID、手势密码解锁进入云之家</div>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">设备管理</a>
+				</li>
+			</ul>
+			<div class="info">对登录设备进行安全管理</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+	</script>
+	</body>
+
+</html>

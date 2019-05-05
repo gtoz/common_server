@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>隐私</title>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+		<!--引入muicss文件-->
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<style type="text/css">
+			html {
+				background-color: #f6f7f7;
+			}
+			
+			.mui-bar-nav {
+				box-shadow: none;
+			}
+			
+			.mui-bar-nav~.mui-content {
+				padding-top: 7%;
+				background-color: #FAFAFA;
+			}
+			.info {
+				padding: 1% 0 2% 3%;
+				font-size: 12px;
+				color: #798792;
+				letter-spacing: 1px;
+				/*文字间距*/
+			}
+			li{
+				/*font-family: "微软雅黑";*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href=""></a>
+			<h1 class="mui-title">隐私</h1>
+		</header>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					允许他人添加我为好友
+					<!--希望隐藏on/off文字提示，变成简洁模式，需要在.mui-switch节点上增加.mui-switch-mini类
+							若希望开关默认为打开状态，只需要在.mui-switch节点上增加.mui-active类
+							mui默认还提供了蓝色开关控件，只需在.mui-switch节点上增加.mui-switch-blue类
+						-->
+					<div class="mui-switch mui-switch-blue mui-switch-mini mui-active">
+						<div class="mui-switch-handle"></div>    
+					</div>
+				</li>
+			</ul>
+			<div class="info"> 若关闭以上选项，不允许他人添加你为好友，对方将无法通过二维码、名片或手机号添加你</div>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					加我为好友时需要验证
+					<div class="mui-switch mui-switch-blue mui-switch-mini mui-active">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</li>
+			</ul>
+			
+		</div>
+		<script src="js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+	</script>
+	</body>
+
+</html>

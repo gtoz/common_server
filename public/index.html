@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>金蝶云</title>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+		<!--引入muicss文件-->
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<!--引入样式重置表-->
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<!--引入页面样式-->
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar mui-bar-transparent">
+			<a href="personalcenter.html" class="mui-btn mui-btn-link mui-btn-nav mui-pull-left">
+				<span><img src="images/personal1.png"/></span>
+			</a>
+			<a href="im-chat.html" class="mui-btn mui-btn-link mui-btn-nav mui-pull-right">
+				<img src="images/kefu2.png"/>
+			</a>
+		</header>
+		<!--<header class="mui-bar mui-bar-nav indexbar">
+			<a href="personalcenter.html" class="mui-btn mui-btn-link mui-btn-nav mui-pull-left">
+				<span><img src="images/personal.png"/></span>
+			</a>
+			<a href="im-chat.html" class="mui-btn mui-btn-link mui-btn-nav mui-pull-right"> <img src="images/kefu1.png"/></a>
+		</header>-->
+
+		<!--主页面底部选项卡-->
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item">
+				<span class="mui-icon mui-icon-chat"></span>
+				<span class="mui-tab-label">消息</span>
+			</a>
+			<a class="mui-tab-item mui-active">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a href="" class="mui-tab-item">
+				<span class="mui-icon mui-icon-pengyouquan"></span>
+				<span class="mui-tab-label">同事圈</span>
+			</a>
+		</nav>
+
+		<div class="mui-content">
+			<!--焦点轮播图-->
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="images/img1.jpg" class="sliderimg">
+						</a>
+					</div>
+					<!-- 第一张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/img1.jpg" class="sliderimg">
+						</a>
+					</div>
+					<!-- 第二张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/img2.jpg" class="sliderimg">
+						</a>
+					</div>
+					<!-- 第三张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/img3.jpg" class="sliderimg">
+						</a>
+					</div>
+					<!-- 第四张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="images/img4.jpg" class="sliderimg">
+						</a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="images/img1.jpg" class="sliderimg">
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+
+			<!--首页导航-->
+			<div class="mui-row">
+				<!--mui-row栅格系统-->
+				<ul class="navbar mui-list-unstyled mui-clearfix">
+					<li>
+						<a href="department.html">
+							<img src="images/department.png" />
+							<p>组织架构</p>
+						</a>
+
+					</li>
+					<li>
+						<a href="">
+							<img src="images/notice.png" />
+							<p>公告</p>
+						</a>
+
+					</li>
+					<li>
+						<a href="punchcard.html">
+							<img src="images/sign.png" />
+							<p>签到</p>
+						</a>
+
+					</li>
+					<li>
+						<a href="">
+							<img src="images/salary.png" />
+							<p>薪资</p>
+						</a>
+
+					</li>
+					<li>
+						<a href="business.html">
+							<img src="images/business.png" />
+							<p>出差</p>
+						</a>
+					</li>
+					<li>
+						<a href="leave.html">
+							<img src="images/leave.png" />
+							<p>请假</p>
+						</a>
+					</li>
+					<li>
+						<a href="dimission.html">
+							<img src="images/dimission.png" />
+							<p>离职</p>
+						</a>
+					</li>
+
+					<li>
+						<a href="">
+							<img src="images/task.png" />
+							<p>任务</p>
+						</a>
+					</li>
+
+				</ul>
+
+			</div>
+
+			<!--新闻动态-->
+			<ul class="mui-table-view">
+				<div class="messageheader">
+					<img src="images/news.jpg" />
+					<span>新闻动态</span>
+					<a href="moremessge.html" class="mui-pull-right">更多动态</a>
+				</div>
+				<!--media list（图文列表）-->
+				<li class="mui-table-view-cell mui-media">
+					<a href="">
+						<img class="mui-media-object mui-pull-right" src="images/img2.jpg">
+						<div class="mui-media-body info">
+							<div id="title">行政部通讯录公示</div>
+							<!--mui-ellipsis超过一行显示省略号-->
+							<!--<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>-->
+							<div>
+								<span id="department">索贝行政部</span>
+								<span id="time">2019-03-28</span>
+							</div>
+
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="">
+						<img class="mui-media-object mui-pull-right" src="images/img2.jpg">
+						<div class="mui-media-body info">
+							<div id="title">行政部通讯录公示</div>
+							<!--mui-ellipsis超过一行显示省略号-->
+							<!--<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>-->
+							<div>
+								<span id="department">索贝行政部</span>
+								<span id="time">2019-03-28</span>
+							</div>
+
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="">
+						<img class="mui-media-object mui-pull-right" src="images/img2.jpg">
+						<div class="mui-media-body info">
+							<div id="title">行政部通讯录公示</div>
+							<!--mui-ellipsis超过一行显示省略号-->
+							<!--<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>-->
+							<div>
+								<span id="department">索贝行政部</span>
+								<span id="time">2019-03-28</span>
+							</div>
+
+						</div>
+					</a>
+				</li>
+
+			</ul>
+			
+			<ul class="mui-table-view">
+				<div class="messageheader">
+					<img src="images/news.jpg" />
+					<span>新闻动态</span>
+					<a href="moremessge.html" class="mui-pull-right">更多动态</a>
+				</div>
+				<!--media list（图文列表）-->
+				<li class="mui-table-view-cell mui-media">
+					<a href="">
+						<img class="mui-media-object mui-pull-right" src="images/img2.jpg">
+						<div class="mui-media-body info">
+							<div id="title">行政部通讯录公示</div>
+							<!--mui-ellipsis超过一行显示省略号-->
+							<!--<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>-->
+							<div>
+								<span id="department">索贝行政部</span>
+								<span id="time">2019-03-28</span>
+							</div>
+
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="">
+						<img class="mui-media-object mui-pull-right" src="images/img2.jpg">
+						<div class="mui-media-body info">
+							<div id="title">行政部通讯录公示</div>
+							<!--mui-ellipsis超过一行显示省略号-->
+							<!--<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>-->
+							<div>
+								<span id="department">索贝行政部</span>
+								<span id="time">2019-03-28</span>
+							</div>
+
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="">
+						<img class="mui-media-object mui-pull-right" src="images/img2.jpg">
+						<div class="mui-media-body info">
+							<div id="title">行政部通讯录公示</div>
+							<!--mui-ellipsis超过一行显示省略号-->
+							<!--<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>-->
+							<div>
+								<span id="department">索贝行政部</span>
+								<span id="time">2019-03-28</span>
+							</div>
+
+						</div>
+					</a>
+				</li>
+
+			</ul>
+			
+
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			//轮播图效果
+			var gallery = mui('.mui-slider');
+			gallery.slider({
+				interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
+			});
+		</script>
+	</body>
+
+</html>

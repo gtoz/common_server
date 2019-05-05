@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>组织架构</title>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+		<!--引入muicss文件-->
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<!--引入样式重置表-->
+		<!--<link rel="stylesheet" type="text/css" href="css/reset.css" />-->
+		<style type="text/css">
+			html {
+				background-color: #f8fafd;
+			}
+			
+			.mui-bar-nav~.mui-content {
+				padding-top: 7%;
+			}
+			
+			.mui-content {
+				background-color: #f8fafd;
+			}
+			
+			.mui-table-view {
+				margin-bottom: 1%;
+				border: none;
+			}
+			
+			.mui-bar-nav {
+				box-shadow: none;
+			}
+			
+			img {
+				width: 50px;
+				margin-top: 2%;
+				margin-bottom: 3%;
+				/*margin-left: 50%;*/
+			}
+			
+			span {
+				display: block;
+				margin-bottom: 5%;
+				font-family: "微软雅黑";
+			}
+			
+			.company {
+				text-align: center;
+			}
+			
+			li {
+				font-family: "微软雅黑";
+			}
+			
+			.department {
+				font-size: 22px;
+			}
+			
+			.close {
+				width: 18px;
+				margin-top: 13px;
+				margin-left: 18px;
+				margin-right: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a href="" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<!--<a href="index.html"><img src="images/close.png" class="close" /></a>-->
+			<h1 class="mui-title">组织架构</h1>
+		</header>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell company">
+					<img src="images/icon.jpg" />
+					<span>成都索贝数码股份有限公司</span>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell department">
+					<div>下级部门</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" href="department_member.html">董事会及经理会</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">董事会办公室</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">总裁办公室</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">销售中心</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">财物管理部</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">人力资源部</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">采购部</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">行政部</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">市场部</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">融合媒体事业部</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">媒体产品事业部</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">解决方案研发中心</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">视频产品研发中心</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">拓展产品研发中心</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">诺亚方舟实验室</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">总工办</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">数据业务部</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">质量管理部</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">移动互联业务部</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">凌云业务部</a>
+				</li>
+			</ul>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+		</script>
+	</body>
+
+</html>

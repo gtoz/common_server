@@ -1,0 +1,157 @@
+/*初始化*/
+*{
+	margin:0; 
+	padding:0;
+	-webkit-user-select: none;
+}
+
+body{
+	color:#666666; 
+	font-size:14px; 
+	font-family:"微软雅黑"; 
+	background-color:#FAFAFA; 
+	height:100%; 
+	overflow-y:scroll;
+}
+
+.mui-content{
+	background-color: #FAFAFA;
+}
+
+a{ 
+	text-decoration:none; 
+	outline:none;
+}
+img{
+	border:none;
+}
+ul{
+	list-style:none;
+}
+.mui-bar-nav{
+	box-shadow: none;
+}
+.mui-bar-nav~.mui-content{
+	padding-top: 35px;
+}
+
+.clearfix:after{
+	content:"."; 
+	display:block; 
+	height:0; 
+	clear:both; 
+	overflow:hidden;
+}
+.clearfix{
+	zoom:1;
+}
+/*日历*/
+.calendar-container{
+	width:100%;
+	margin: 10px 0px; 
+}
+.calendar-title{
+	width:100%; 
+	height:45px;
+	color:#fff;
+	background-color:#09F;
+}
+.calendar-month{
+	float:left;
+	width:20%;
+	height:45px;
+	text-align:center;
+	cursor:pointer;
+	line-height:45px;
+}
+.calendar-year{
+	float:left;
+	width:20%;
+	height:45px;
+	text-align:center;
+	cursor:pointer;
+	line-height:45px;
+}
+.calendar-prevyear,
+.calendar-prevmonth,
+.calendar-nextyear,
+.calendar-nextmonth{
+	float:left;
+	width:15%; 
+	height:45px;
+	text-align:center;
+	cursor:pointer;
+	line-height:45px;
+}
+.calendar-week{
+	width:100%;
+	height:45px;
+}
+.calendar-week div{
+	float:left; 
+	width:14.28%; 
+	height:45px; 
+	color:#313131; 
+	background-color:#d7edff;
+	text-align:center; 
+	line-height:45px; 
+	cursor:pointer;
+}
+.calendar-content{
+	width:100%;
+	background-color:#f2f5f9; 
+}
+.calendar-content div{
+	float:left; 
+	width:14.28%; 
+	height: 40px;
+	line-height: 40px;
+	padding: 5px 0px;
+	background-color:#f2f5f9; 
+	color:#333; 
+	text-align:center; 
+	cursor:pointer;
+}
+.calendar-content .canChoose{
+	background-color:#f2f5f9;
+}
+.calendar-content .canChoose:hover{
+	color: #fff;
+	background-color:#09F;
+}
+.calendar-content div.today{
+	color:#09F;
+}
+
+/*打卡信息*/
+#punchinfo{
+	margin-top: 15px;
+	background-color: #FFFFFF;
+	padding: 10px 10px 25px 10px;
+}
+.punchinfo_day span{
+	font-size: 20px;
+	margin: 8px;
+}
+
+#worklabel,#leavelabel{
+	margin-left: 25px;
+}
+
+#worktime,#leavetime{
+	width: 93%;
+	background-color: #FAFAFA;
+	height: 65px;
+	margin-left: 25px;
+	margin-top: 8px;
+	
+	padding: 10px;
+}
+
+.leavetime,.worktime{
+	font-size: 22px;
+	display: block;
+	margin-bottom: 5px;
+}
+
+

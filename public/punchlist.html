@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>签到统计</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		 <link rel="stylesheet" type="text/css" href="css/punchlist_calendar.css"/>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">签到统计</h1>
+		</header>
+		<div class="mui-content" id="">
+		    <div class="calendar">
+		    	
+		    </div>
+		    <div id="punchinfo">
+		    	<div class="punchinfo_day mui-clearfix">
+		    		<span id="day" class="mui-pull-left">
+		    			
+		    		</span>
+		    		<span id="week" class="mui-pull-right">
+		    			
+		    		</span>
+		    	</div>
+		    	<div id="workinfo">
+		    		<span id="worklabel">
+		    			上班
+		    		</span>
+		    		<div id="worktime">
+		    			<span class="worktime">
+		    				9:45
+		    			</span>
+		    			<span class="workaddr">
+		    				索贝数码科技股份有限公司
+		    			</span>
+		    		</div>
+		    	</div>
+		    	<div id="leaveinfo">
+		    		<span id="leavelabel">
+		    			下班
+		    		</span>
+		    		<div id="leavetime">
+		    			<span class="leavetime">
+		    				9:45
+		    			</span>
+		    			<span class="leaveaddr">
+		    				索贝数码科技股份有限公司
+		    			</span>
+		    		</div>
+		    	</div>
+		    </div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/punchlist_calendar.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init()
+			
+			var cld = new Calendar({
+			el: '.calendar',
+			value: '', // 默认为new Date();
+			callback: function(obj) {
+				console.log(JSON.stringify(obj));
+			}
+		})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+		<link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<!--<link rel="stylesheet" type="text/css" href="css/same.css"/>-->
+		<title>签到</title>
+		<style>
+			html,
+			body,
+			.mui-content,
+			.mui-table-view {
+				background-color: #FFFFFF;
+			}
+			/*地图尺寸*/
+			
+			#container {
+				width: 100%;
+				height: 200px;
+			}
+			
+			#info {
+				height: 60px;
+				margin: 15px;
+				border-bottom: solid #e6e7ed 1px;
+			}
+			
+			#punchlist {
+				border-radius: 20px;
+				width: 80px;
+				color: cornflowerblue;
+				background-color: #f6f7f7;
+			}
+			
+			.day {
+				margin-top: 5px;
+				margin-bottom: 8px;
+				font-size: 15px;
+				font-family: "仿宋";
+				margin-bottom: 10px;
+			}
+			
+			#tip {
+				padding: 12px 10px;
+				color: #a4a8aa;
+				/*height: 50px;*/
+				margin: 20px 15px;
+				background-color: #f6f7f7;
+				border-radius: 6px;
+			}
+			
+			#work,#leave{
+				background-color: #59acef;
+				padding: 12px 10px;
+				color: #FFFFFF;
+				font-size: 20px;
+				margin: 20px 15px;
+				border-radius: 10px;
+				display: none;
+			}
+
+			#work>span,
+			#leave>span {
+				display: block;
+				margin-bottom: 5px;
+				margin-left: 10px;
+			}
+			
+			.mui-btn-block {
+				position: fixed;
+				/*将button按钮固定在页面底部*/
+				bottom: 5px;
+				width: 50%;
+				margin-left: 25%;
+				background-color: #62d2ca;
+				border-radius: 50px;
+				margin-bottom: 30px;
+			}
+			
+			.punchbtn>div {
+				display: inline-block;
+			}
+			
+			#punch>span {
+				color: #FFFFFF;
+				display: block;
+				font-size: 15px;
+			}
+			
+			.punchbtn img {
+				width: 30px;
+			}
+		</style>
+		<title>签到</title>
+		
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar mui-bar-transparent">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">签到</h1>
+		</header>
+		<div class="mui-content">
+			<div id="container"></div>
+			<div id="info" class="mui-hidden">
+				<div class="mui-pull-left">
+					<div>成都索贝数码科技股份有限公司</div>
+					<div class="day">
+						<span id="day"></span>
+						<span id="date"></span>
+					</div>
+				</div>
+				<button type="button" id="punchlist" class="mui-btn mui-btn-blue mui-pull-right">签到统计</button>
+			</div>
+			<div id="tip" class="mui-hidden"></div>
+			<div id="work">
+				<span id="worktime">
+					10:50
+				</span>
+				<span id="workaddr">
+					索贝数码科技
+				</span>
+			</div>
+			<div id="leave">
+				<span id="leavetime">
+					18:50
+				</span>
+				<span id="leaveaddr">
+					索贝数码科技
+				</span>
+			</div>
+			<button id="punchbtn" type="button" class="mui-btn mui-btn-block mui-hidden punchbtn">
+				<div id="">
+					<img src="images/punch.png"/>
+				</div>
+				<div id="">
+					<img src="images/cutline.png"/>
+				</div>
+				<div id="punch">
+					<span>签到</span>
+					<span id="punchtime"></span>
+				</div>
+			</button>
+
+		</div>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://webapi.amap.com/maps?v=1.4.14&key=eeb22424f5b843115d27df87a4f9493b"></script>
+		<script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+		<script src="js/punchcard.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

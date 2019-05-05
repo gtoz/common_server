@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>个人中心</title>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+		<!--引入muicss文件-->
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<!--引入样式重置表-->
+		<!--<link rel="stylesheet" type="text/css" href="css/reset.css" />-->
+		<style type="text/css">
+			html,
+			body,
+			.mui-content {
+				background-color: #FFFFFF;
+			}
+			
+			.top {
+				background-image: url(images/bg.jpg);
+			}
+			
+			.setting {
+				padding-top: 20px;
+				width: 100%;
+				height: 90px;
+			}
+			
+			.settingimg {
+				margin-left: 15px;
+				/*margin-top: 8px;*/
+			}
+			
+			.closeimg {
+				margin-right: 18px;
+				width: 25px;
+				margin-top: 4px;
+			}
+			
+			.info {
+				padding-left: 10px;
+				padding-bottom: 15px;
+			}
+			
+			.info>img,
+			.info>div {
+				display: inline-block;
+			}
+			
+			.info>img {
+				margin-left: 13px;
+				margin-right: 15px;
+			}
+			
+			.info>div>div {
+				margin-bottom: 10px;
+				font-family: "仿宋";
+			}
+			
+			.info>div>div:first-child {
+				font-size: 25px;
+			}
+			
+			.info>div>div:last-child {
+				font-size: 12px;
+			}
+			/*去除mui-table-view 顶部和底部边框*/
+			
+			.mui-table-view:before {
+				height: 0;
+			}
+			
+			.mui-table-view:after {
+				height: 0
+			}
+			/*去除mui-table-view-cell的边框 两种方法选其一*/
+			
+			.mui-table-view-cell:after {
+				/*left: 100%;*/
+				background-color: #fff;
+			}
+			
+			.mui-table-view>.mui-table-view-cell:first-child:after {
+				background-color: #C0C0C0;
+			}
+			
+			.mui-row {
+				padding-top: 2%;
+				/*background-color: #FFFFFF;*/
+				margin-bottom: 2%;
+			}
+			
+			.navbar {
+				margin-bottom: 2%;
+			}
+			
+			.navbar li {
+				float: left;
+				width: 33%;
+				text-align: center;
+			}
+			
+			.navbar li img {
+				width: 30px;
+			}
+			
+			.navbar li p {
+				font-family: 仿宋;
+				font-size: 14px;
+				color: #3c3f40;
+				margin-top: 2%;
+			}
+			
+			.mui-table-view>.mui-table-view-cell>a>img {
+				width: 40px;
+			}
+			
+			.mui-table-view>.mui-table-view-cell>a>span {
+				margin-left: 20px;
+				margin-top: 30px;
+				font-family: 仿宋;
+				font-size: 15px;
+				color: #3c3f40;
+				margin-top: 2%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="top">
+				<div class="setting">
+					<div class="mui-pull-left">
+						<a class="" href="setting.html">
+							<span><img src="./images/setting.png"/ class="settingimg"></span>
+						</a>
+					</div>
+					<div class="mui-pull-right">
+						<a class="" href="index.html">
+							<span><img src="./images/close.png"/ class="closeimg"></span>
+						</a>
+					</div>
+
+				</div>
+				<div class="info">
+					<img src="images/photo.png" class="" />
+					<div class="">
+						<div>姚平</div>
+						<div>成都索贝数码科技股份有限公司</div>
+					</div>
+				</div>
+			</div>
+
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<div class="mui-row">
+						<!--mui-row栅格系统-->
+						<ul class="navbar mui-list-unstyled mui-clearfix">
+							<li>
+								<a href="">
+									<img src="./images/icon8.png" />
+									<p>活力值</p>
+								</a>
+
+							</li>
+							<li>
+								<img src="./images/icon9.png" />
+								<p>勋章</p>
+							</li>
+							<li>
+								<img src="./images/icon10.png" />
+								<p>红包</p>
+							</li>
+
+						</ul>
+					</div>
+				</li>
+
+				<li class="mui-table-view-cell">
+					<a href="">
+						<img src="./images/icon4.jpg" class="mui-pull-left" />
+						<span class="mui-pull-left">我的名片</span>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="">
+						<img src="./images/icon5.jpg" class="mui-pull-left" />
+						<span class="mui-pull-left">小云福利</span>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="">
+						<img src="./images/icon6.jpg" class="mui-pull-left" />
+						<span class="mui-pull-left">我的收藏</span>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="im-chat.html">
+						<img src="./images/icon3.jpg" class="mui-pull-left" />
+						<span class="mui-pull-left">我的客服</span>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="feedback.html">
+						<img src="./images/icon7.jpg" class="mui-pull-left" />
+						<span class="mui-pull-left">问题反馈</span>
+					</a>
+				</li>
+
+			</ul>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+	</script>
+
+</html>

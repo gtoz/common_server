@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>注册</title>
+		<!--引入muicss文件-->
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<!--引入样式重置表-->
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<style type="text/css">
+			body {
+				width: 100%;
+				background-image: url(./images/backg.png);
+			}
+			
+			.mui-bar {
+				right: auto;
+				background-color: transparent;
+			}
+			
+			.mui-bar-nav {
+				box-shadow: none;
+				/*阴影*/
+			}
+			
+			h1 {
+				background-color: transparent;
+				margin: 16% 0 10% 10%;
+				font-size: 25px;
+			}
+			/*验证码input*/
+			
+			.mui-input-row .mui-btn~input {
+				padding-left: 15px;
+				width: 70%;
+			}
+			/*验证码按钮*/
+			
+			.mui-input-row .mui-btn {
+				font-size: 13px;
+				width: 30%;
+				color: #527be7;
+				border: none;
+				padding-right: 0;
+				padding-left: 5%;
+			}
+			/*去除mui-table-view 顶部和底部边框*/
+			.mui-table-view:before {
+				height: 0
+			}
+			
+			.mui-table-view:after {
+				height: 0
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href=""></a>
+		</header>
+		<div class="mui-content">
+			<h1>新用户注册</h1>
+			<form action="" method="post" class="mui-input-group">
+				<div class="mui-input-row text">
+					<input type="text" name="mess" id="mess" class="mui-input-clear" placeholder="请输入手机号" />
+				</div>
+				<div class="mui-input-row text">
+					<input type="password" name="pass" id="pass" class="mui-input-password" placeholder="请输入密码(包含字母和数字不少于8位)" />
+				</div>
+				<div class="mui-input-row text">
+					<button type="button" class="mui-btn mui-btn-outlined">获取验证码</button>
+					<input type="text" class="mui-input mui-pull-left" placeholder="请输入验证码">
+
+				</div>
+				<div class="mui-button-row">
+					<button type="button" class="mui-btn okbtn mui-pull-right">
+					<span class="mui-icon mui-icon-arrowright"></span>
+				</button>
+				</div>
+			</form>
+		</div>
+        <script src="js/mui.min.js"></script>
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+        </script>
+	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+	</script>
+	</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>离职</title>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/same.css" />
+		<style type="text/css">
+			.mui-bar~.mui-content {
+				margin-top: 0;
+				padding-top: 30px;
+			}
+			/*去除mui-table-view 顶部和底部边框*/
+			/*.mui-table-view:before {
+				height: 0
+			}*/
+			/*.mui-table-view:after {
+				height: 0
+			}*/
+			
+			.leavelist p,
+			h4 {
+				display: inline-block;
+				margin-bottom: 10px;
+			}
+			/*超过一行显示省略*/
+			
+			.leavereson {
+				text-overflow: ellipsis;
+				/*当文本溢出包含元素时发生的事情-显示省略 */
+				overflow: hidden;
+				/*当内容溢出元素框时发生的事情*/
+				white-space: nowrap;
+				/* 文本不会换行 */
+				width: 180px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a href="" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<!--<a href=""><img src="images/close.png" class="close"/></a>-->
+			<a href="dimission_add.html"><img src="images/add.png" class="mui-pull-right" /></a>
+			<h1 class="mui-title">我的离职</h1>
+		</header>
+		<div class="mui-content">
+			<!--列表-->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell leavelist">
+					<a>
+						<div>
+							<h4 id="title">xxx的离职申请</h4>
+							<p id="date" class="mui-pull-right">2019-04-18</p>
+						</div>
+
+						<div>
+							<p>离职日期：</p>
+							<p>1</p>
+						</div>
+						<div class="mui-clearfix">
+							<p class="mui-pull-left">离职原因：</p>
+							<!--mui-ellipsis超过一行显示省略号-->
+							<p class="leavereson mui-pull-left">啦啦啦啦喀喀啊啊啊啊啊啊啊喀啦啦啦啦啦啦啦</p>
+						</div>
+						<p style="color: #00A7EA;">待审批</p>
+					</a>
+				</li>
+			</ul>
+
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+		</script>
+	</body>
+
+</html>
