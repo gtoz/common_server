@@ -81,14 +81,14 @@
 					<span>成都索贝数码股份有限公司</span>
 				</li>
 			</ul>
-			<ul class="mui-table-view">
+			<ul class="mui-table-view" id="app">
 				<li class="mui-table-view-cell department">
 					<div>下级部门</div>
 				</li>
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right" href="department_member.html">董事会及经理会</a>
+				<li class="mui-table-view-cell" v-for="item in department" :key="item.id">
+					<a class="mui-navigate-right" :href="item.href+'?id='+item.id">{{item.name}}</a>
 				</li>
-				<li class="mui-table-view-cell">
+				<!-- <li class="mui-table-view-cell">
 					<a class="mui-navigate-right">董事会办公室</a>
 				</li>
 				<li class="mui-table-view-cell">
@@ -144,7 +144,7 @@
 				</li>
 				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right">凌云业务部</a>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 		<script src="js/mui.min.js"></script>
@@ -152,7 +152,45 @@
 			mui.init({
 				swipeBack: true //启用右滑关闭功能
 			});
-		</script>
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- import { userInfo} from "js/sqlMap.js"; -->
+        
+        <script>
+        
+            const instance = axios.create({
+                baseURL: 'http://localhost:3000/api/base/', // api 的 base_url
+        
+            })
+            Vue.prototype.$http = instance;
+        
+            new Vue({
+                el: '#app',
+                data: {
+                    department:[]
+                },
+                created() {
+                    this.request();
+                },
+                methods: {
+                    request() {
+                        
+                        if (!localStorage.getItem('userInfo')) {
+                            location.href = "./login.html"
+                        }
+                        var userInfo = JSON.parse(localStorage.getItem('userInfo'))
+                        var sql = 'select * from department'
+                        // var sql = 'select * from department where id=?'.replace('?', userInfo.id)
+                        this.$http.post("action", { sql: sql }).then(res => {
+                            // this.$router.push('/Login');
+                            this.department = res.data
+        
+                        });
+                    },
+                }
+            })
+        </script>
 	</body>
 
 </html>

@@ -64,40 +64,89 @@
 		<header class="mui-bar mui-bar-nav">
 			<a href="" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		</header>
-
-		<div class="mui-content">
+        <div>
+		<div class="mui-content" id="app">
 			<ul class="mui-table-view">
 				<li class="mui-table-view-cell name">
 					<img src="images/photo2.png" />
-					<div>姚平</div>
+					<div>{{user.name}}</div>
 				</li>
 			</ul>
 
 			<ul class="mui-table-view department">
 				<li class="mui-table-view-cell">
 					<span>部门</span>
-					<span>产品管理部</span>
+					<span>{{user.dname}}</span>
 				</li>
 			</ul>
 			<ul class="mui-table-view principal">
 				<li class="mui-table-view-cell">
 					<span>部门负责人</span>
-					<span>姚平</span>
+					<span>{{user.uname}}</span>
 				</li>
 			</ul>
 			<ul class="mui-table-view tel">
 				<li class="mui-table-view-cell">
 					<span>手机号</span>
-					<span>15928611255</span>
+					<span>{{user.tel}}</span>
 				</li>
 			</ul>
-		</div>
+        </div>
+    </div>
 		<script src="js/mui.min.js"></script>
 		<script>
 			mui.init({
 				swipeBack: true //启用右滑关闭功能
 			});
-		</script>
+        </script>
+         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+         <!-- import { userInfo} from "js/sqlMap.js"; -->
+     
+         <script>
+     
+             const instance = axios.create({
+                 baseURL: 'http://localhost:3000/api/base/', // api 的 base_url
+     
+             })
+             function getQueryString(name) { 
+             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+             var r = window.location.search.substr(1).match(reg); 
+             if (r != null) return unescape(r[2]); 
+             return null; 
+         } 
+             Vue.prototype.$http = instance;
+     
+             new Vue({
+                 el: '#app',
+                 data: {
+                     user: {},
+                  
+                 },
+                 created() {
+                     this.request();
+                 },
+                 methods: {
+                     request() {
+     
+                         if (!localStorage.getItem('userInfo')) {
+                             location.href = "./login.html"
+                         }
+                         var id= getQueryString('id')
+                         var userInfo = JSON.parse(localStorage.getItem('userInfo'))
+                         // var sql = 'select * from department'
+                          var sql = 'select u.*,d.name as dname, d.uname from userInfo u left join department d on d.id=u.did  where u.id=?'.replace('?', id)
+                         this.$http.post("action", { sql: sql }).then(res => {
+                             // this.$router.push('/Login');
+                            this.user=res.data[0]
+                        
+                         });
+                      
+                     },
+                     
+                 }
+             })
+         </script>
 	</body>
 
 </html>

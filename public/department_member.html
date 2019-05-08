@@ -1,122 +1,181 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<title>组织架构</title>
-		<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
-		<!--引入muicss文件-->
-		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
-		<!--引入样式重置表-->
-		<!--<link rel="stylesheet" type="text/css" href="css/reset.css" />-->
-		<style type="text/css">
-			html {
-				background-color: #f8fafd;
-			}
-			
-			.mui-bar-nav~.mui-content {
-				padding-top: 7%;
-			}
-			
-			.mui-content {
-				background-color: #f8fafd;
-			}
-			
-			.mui-bar-nav {
-				box-shadow: none;
-			}
-			
-			li {
-				font-family: "微软雅黑";
-			}
-			
-			.principal {
-				margin-bottom: 1%;
-				/*border: none;*/
-			}
-			
-			.principal>li>a>div {
-				/*font-size: 20px;*/
-				margin-bottom: 2%;
-			}
-			
-			.principal>li>a>img {
-				margin-left: 2%;
-			}
-			
-			.principal>li>a>p {
-				font-size: 17px;
-				color: #8a8a8a;
-				margin-left: 3%;
-				font-family: "仿宋";
-			}
-			/*职位*/
-			
-			.post {
-				color: #aeadad;
-				margin-top: 1%;
-				font-family: "仿宋";
-			}
-			
-			.photo {
-				margin-right: 10px;
-			}
-			
-			.close {
-				width: 18px;
-				margin-top: 13px;
-				margin-left: 18px;
-				margin-right: 10px;
-			}
-		</style>
-	</head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>组织架构</title>
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+    <!--引入muicss文件-->
+    <link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+    <!--引入样式重置表-->
+    <!--<link rel="stylesheet" type="text/css" href="css/reset.css" />-->
+    <style type="text/css">
+        html {
+            background-color: #f8fafd;
+        }
 
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a href="" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<!--<a href=""><img src="images/close.png" class="close" /></a>-->
-			<h1 class="mui-title">组织架构</h1>
-		</header>
-		<div class="mui-content">
-			<ul class="mui-table-view principal">
-				<li class="mui-table-view-cell">
-					<a href="">
-						<div class="">负责人</div>
-						<img src="./images/photo1.png" />
-						<p>陈峰</p>
-					</a>
+        .mui-bar-nav~.mui-content {
+            padding-top: 7%;
+        }
 
-				</li>
-			</ul>
-			<ul class="mui-table-view">
-				<li class="mui-table-view-cell">
-					<span class="principal">部门成员</span>
-				</li>
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right" href="department_info.html">
-						<!--<img src="images/mine.png"/>-->
-						<div class="mui-pull-left">
-							<img class="mui-pull-left photo" src="./images/photo1.png" />
-							<div class="mui-pull-right">
-								<div>姚平</div>
-								<div class="post">董事长</div>
-							</div>
-						</div>
+        .mui-content {
+            background-color: #f8fafd;
+        }
 
-					</a>
-				</li>
-			</ul>
+        .mui-bar-nav {
+            box-shadow: none;
+        }
 
-		</div>
-		<script src="js/mui.min.js"></script>
-		<script>
-			mui.init({
-				swipeBack: true //启用右滑关闭功能
-			});
-		</script>
-	</body>
+        li {
+            font-family: "微软雅黑";
+        }
+
+        .principal {
+            margin-bottom: 1%;
+            /*border: none;*/
+        }
+
+        .principal>li>a>div {
+            /*font-size: 20px;*/
+            margin-bottom: 2%;
+        }
+
+        .principal>li>a>img {
+            margin-left: 2%;
+        }
+
+        .principal>li>a>p {
+            font-size: 17px;
+            color: #8a8a8a;
+            margin-left: 3%;
+            font-family: "仿宋";
+        }
+
+        /*职位*/
+
+        .post {
+            color: #aeadad;
+            margin-top: 1%;
+            font-family: "仿宋";
+        }
+
+        .photo {
+            margin-right: 10px;
+        }
+
+        .close {
+            width: 18px;
+            margin-top: 13px;
+            margin-left: 18px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a href="" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <!--<a href=""><img src="images/close.png" class="close" /></a>-->
+        <h1 class="mui-title">组织架构</h1>
+    </header>
+    <div>
+        <div class="mui-content" id="app">
+            <ul class="mui-table-view principal">
+                <li class="mui-table-view-cell">
+                    <a href="">
+                        <div class="">负责人</div>
+                        <img src="./images/photo1.png" />
+                        <p>{{user.name}}</p>
+                    </a>
+
+                </li>
+            </ul>
+            <ul class="mui-table-view">
+                <li class="mui-table-view-cell">
+                    <span class="principal">部门成员</span>
+                </li>
+                <li class="mui-table-view-cell" v-for="item in userList" :key="item.id">
+                    <a class="mui-navigate-right" :href="'department_info.html?id='+item.id">
+                        <!--<img src="images/mine.png"/>-->
+                        <div class="mui-pull-left">
+                            <img class="mui-pull-left photo" src="./images/photo1.png" />
+                            <div class="mui-pull-right">
+                                <div>{{item.name}}</div>
+                                <div class="post">{{item.pos}}</div>
+                            </div>
+                        </div>
+
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/mui.min.js"></script>
+    <script>
+        mui.init({
+            swipeBack: true //启用右滑关闭功能
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- import { userInfo} from "js/sqlMap.js"; -->
+
+    <script>
+
+        const instance = axios.create({
+            baseURL: 'http://localhost:3000/api/base/', // api 的 base_url
+
+        })
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+        Vue.prototype.$http = instance;
+
+        new Vue({
+            el: '#app',
+            data: {
+                user: {},
+                userList: []
+            },
+            created() {
+                this.request();
+            },
+            methods: {
+                request() {
+
+                    if (!localStorage.getItem('userInfo')) {
+                        location.href = "./login.html"
+                    }
+                    var id = getQueryString('id')
+                    var userInfo = JSON.parse(localStorage.getItem('userInfo'))
+                    // var sql = 'select * from department'
+                    var sql = 'select * from department where id=?'.replace('?', id)
+                    this.$http.post("action", { sql: sql }).then(res => {
+                        // this.$router.push('/Login');
+                        res = res.data[0]
+
+
+                        sql = 'select * from userInfo where id=?'.replace('?', res.uid)
+                        this.$http.post("action", { sql: sql }).then(res => {
+                            this.user = res.data[0]
+                        })
+                    });
+                    sql = 'select * from userInfo where did=?'.replace('?', id)
+                    this.$http.post("action", { sql: sql }).then(res => {
+                        this.userList = res.data
+
+                    })
+                },
+
+            }
+        })
+    </script>
+</body>
 
 </html>
