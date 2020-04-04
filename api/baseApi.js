@@ -77,14 +77,14 @@ var space = ' '
 var eq = '='
 router.post('/insert', (req, res) => {
     var p = req.body;
-    var sql = "INSERT INTO " + p.table;
+    var sql = "INSERT INTO `" + p.table+"`";
     var param = []
     var d = p.data
     if (d != undefined) {
         var property = ' ('
         var val = ' ('
         for (const key in d) {
-            property = property + key + ','
+            property = property +' `'+ key + '`,'
             val = val + '?,'
             if (d.hasOwnProperty(key)) {
                 const element = d[key];
@@ -116,7 +116,7 @@ router.post('/search', (req, res) => {
     if (d != undefined) {
         var where = ' where '
         for (const key in d) {
-            where = where + ' ' + key + ' like ? AND '
+            where = where + ' `' + key + '` like ? AND '
             if (d.hasOwnProperty(key)) {
                 const element = d[key];
                 param.push(element)
