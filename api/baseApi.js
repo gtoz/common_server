@@ -5,7 +5,7 @@ var multer = require('multer');
 var UUID = require('uuid')
 var path = require('path')
 
-var util=require('./util')
+var util = require('./util')
 
 
 var storage = multer.diskStorage({
@@ -77,14 +77,14 @@ var space = ' '
 var eq = '='
 router.post('/insert', (req, res) => {
     var p = req.body;
-    var sql = "INSERT INTO `" + p.table+"`";
+    var sql = "INSERT INTO `" + p.table + "`";
     var param = []
     var d = p.data
     if (d != undefined) {
         var property = ' ('
         var val = ' ('
         for (const key in d) {
-            property = property +' `'+ key + '`,'
+            property = property + ' `' + key + '`,'
             val = val + '?,'
             if (d.hasOwnProperty(key)) {
                 const element = d[key];
@@ -166,9 +166,9 @@ router.post('/mqtt', (req, res) => {
 });
 
 router.get('/code', (req, res) => {
-    let img =util.makeCapcha()
-  res.setHeader('Content-Type', 'image/bmp')
-  res.end(img.getFileData())
+    let img = util.makeCapcha()
+    res.setHeader('Content-Type', 'image/bmp')
+    res.end(img.getFileData())
 
 });
 
@@ -179,16 +179,19 @@ router.get('/getcode', (req, res) => {
 
 
 router.post('/upload', upload.array('file', 10), async (req, res, next) => {
-
+    var p = req.body;
     var sql = 'insert into resource(filePath,fileName,originalname) values(?,?,?)'
     let fileIdList = []
+
+    // console.log(p.flag)
     for (var i = 0; i < req.files.length; i++) {
         var file = req.files[i]
-        // goods_picture += req.files[i].filename+'#'
-        var result = await query(sql, [file.path, file.filename, file.originalname])
-
-        fileIdList.push(result.insertId)
-
+        if (!p.flag) {
+            var result = await query(sql, [file.path, file.filename, file.originalname])
+            fileIdList.push(result.insertId)
+        } else {
+            fileIdList.push("http://localhost:"+models.port+"/"+file.filename)
+        }
     }
     jsonWrite(res, fileIdList);
 
