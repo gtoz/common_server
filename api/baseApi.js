@@ -5,6 +5,8 @@ var multer = require('multer');
 var UUID = require('uuid')
 var path = require('path')
 
+
+
 var util = require('./util')
 
 
@@ -70,8 +72,36 @@ var jsonWrite = function (res, ret) {
         res.json(ret);
     }
 };
-
-
+var request = require('request');
+var options = {
+    method: 'post',
+};
+var typeOpt = {
+    query: 'https://api.weixin.qq.com/tcb/databasequery?access_token=',
+    add: 'https://api.weixin.qq.com/tcb/databaseadd?access_token=',
+    delete: 'https://api.weixin.qq.com/tcb/databasedelete?access_token=',
+    update: 'https://api.weixin.qq.com/tcb/databaseupdate?access_token='
+}
+router.post('/vx', (req, res) => {
+    var p = req.body;
+    options.form = {
+        access_token: models.token,
+        env: models.env,
+        query: p.sql
+    }
+    options.url = typeOpt[p.type] + models.token
+    options.headers = {
+        'Content-Type': 'application/json'
+    }
+    request(options, function (err, res, body) {
+        if (err) {
+            console.log(err)
+        } else {
+            jsonWrite(res, body);
+            console.log(body);
+        }
+    })
+})
 
 var space = ' '
 var eq = '='
@@ -135,8 +165,11 @@ router.post('/search', (req, res) => {
     })
 });
 
+
+
 router.post('/action', (req, res) => {
     var p = req.body;
+
     conn.query(p.sql, [], function (err, result) {
         if (err) {
             console.log(err);
@@ -190,7 +223,7 @@ router.post('/upload', upload.array('file', 10), async (req, res, next) => {
             var result = await query(sql, [file.path, file.filename, file.originalname])
             fileIdList.push(result.insertId)
         } else {
-            fileIdList.push("http://localhost:"+models.port+"/"+file.filename)
+            fileIdList.push("http://localhost:" + models.port + "/" + file.filename)
         }
     }
     jsonWrite(res, fileIdList);
