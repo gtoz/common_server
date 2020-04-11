@@ -72,33 +72,72 @@ var jsonWrite = function (res, ret) {
         res.json(ret);
     }
 };
+
 var request = require('request');
+
 var options = {
-    method: 'post',
+    method: 'get',
+    url: "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx198b88fe077a35f5&secret=98b5b4d9aac4fa4a49c0c78dc1b177dc",
 };
-var typeOpt = {
-    query: 'https://api.weixin.qq.com/tcb/databasequery?access_token=',
-    add: 'https://api.weixin.qq.com/tcb/databaseadd?access_token=',
-    delete: 'https://api.weixin.qq.com/tcb/databasedelete?access_token=',
-    update: 'https://api.weixin.qq.com/tcb/databaseupdate?access_token='
-}
-router.post('/vx', (req, res) => {
-    var p = req.body;
-    options.form = {
-        access_token: models.token,
-        env: models.env,
-        query: p.sql
-    }
-    options.url = typeOpt[p.type] + models.token
-    options.headers = {
-        'Content-Type': 'application/json'
-    }
+
+var getToken = function () {
     request(options, function (err, res, body) {
         if (err) {
             console.log(err)
         } else {
+            global.token = JSON.parse(body).access_token
+            console.log(global.token);
+        }
+    })
+}
+
+
+
+getToken()
+setInterval(getToken, 1000 * 60 * (60 + 59))
+console.log(global.token)
+
+
+var options = {
+    method: 'post',
+};
+var typeOpt = {
+    query: 'https://api.weixin.qq.com/tcb/databasequery',
+    add: 'https://api.weixin.qq.com/tcb/databaseadd',
+    delete: 'https://api.weixin.qq.com/tcb/databasedelete',
+    update: 'https://api.weixin.qq.com/tcb/databaseupdate'
+}
+
+
+
+
+
+router.post('/vx', (req, res) => {
+    var p = req.body;
+    var options = {
+        method: 'POST',
+        url: typeOpt[p.type],
+        qs: { access_token: global.token },
+        headers:
+            {
+                'content-type': 'application/json'
+            },
+        body: { env: models.env, query: p.sql },
+        json: true
+    };
+    console.log(options)
+
+
+    request(options, function (err, vxres, body) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(body)
+            if (p.type=='query') {
+                body.data = body.data.map(item => { return JSON.parse(item) })
+            }
             jsonWrite(res, body);
-            console.log(body);
+            // console.log(body);
         }
     })
 })

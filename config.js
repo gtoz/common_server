@@ -1,25 +1,3 @@
-var request = require('request');
-var options = {
-  method: 'get',
-  url: "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx198b88fe077a35f5&secret=8932116570708aa856178473077bc676",
-};
-var getToken = function () {
-  request(options, function (err, res, body) {
-    if (err) {
-      console.log(err)
-    } else {
-      token = body.access_token
-      console.log(body);
-    }
-  })
-}
-var token = ''
-
-// setInterval(function () {
-//   console.log('scheduleCronstyle:' + new Date());
-// }, 3000)
-getToken()
-setInterval(getToken, 1000 * 60 * (60 + 59))
 
 
 module.exports = {
@@ -32,6 +10,6 @@ module.exports = {
     port: '3306'
   },
   port: '3000',
-  token: token,
+  token: '',
   env:'yzl-f9lur'
 }
