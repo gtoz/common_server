@@ -179,15 +179,20 @@ router.get('/getcode', (req, res) => {
 
 
 router.post('/upload', upload.array('file', 10), async (req, res, next) => {
-
+    var p = req.body;
     var sql = 'insert into resource(filePath,fileName,originalname) values(?,?,?)'
     let fileIdList = []
     for (var i = 0; i < req.files.length; i++) {
         var file = req.files[i]
         // goods_picture += req.files[i].filename+'#'
-        var result = await query(sql, [file.path, file.filename, file.originalname])
+        if (p.flag) {
+            fileIdList.push('http://localhost:3000/'+file.filename)
+        }else{
+            var result = await query(sql, [file.path, file.filename, file.originalname])
 
-        fileIdList.push(result.insertId)
+            fileIdList.push(result.insertId)
+        }
+       
 
     }
     jsonWrite(res, fileIdList);
